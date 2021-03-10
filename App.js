@@ -1,15 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import axios from 'axios';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +11,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default function App() {
+
+const getAll = (category) => {
+  return axios.get(`http://prointeractive.com.br/beta/go/wp-json/wp/v2/${category}`);
+}
+
+
+getAll('product').then((res) => {
+  res.data.map(
+    (item)=> console.log(item.title.rendered)
+    );
+}).catch(error => {
+  console.log(error)
+});
+
+  return (
+    <View style={styles.container}>
+      <Text>React Native Woocomerce</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
+
+}
