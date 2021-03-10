@@ -1,0 +1,12 @@
+{
+  "name": "react-native-woocomerce",
+  "displayName": "react-native-woocomerce",
+  "expo": {
+    "name": "react-native-woocomerce",
+    "slug": "react-native-woocomerce",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
